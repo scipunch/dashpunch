@@ -1,0 +1,36 @@
+$bg: #000000;
+$lightgrey: #323232;
+$darkgrey: #212121;
+$grey: #100F10;
+$fg: #FDFDFD;
+$red: #FCABCF;
+$flamingo: #2CA3ED;
+$green: #44bc44;
+$cyan: #6AE4B9;
+$yellow: #C5976A;
+$peach: #F07854;
+$red: #F07854;
+$purple: #B6A0FF;
+
+$font-xl: 64px;
+$font-md: 48px;
+$font-sm: 32px;
+
+$radius: 10px;
+$padding-sm: 10px;
+
+* { all: unset; }
+
+.widget {
+    background-color: rgba($bg, 0.4);
+    padding: $padding-sm;
+    border-radius: $radius;
+}
+
+.datetime-time {
+    font-size: $font-xl;
+}
+
+.datetime-date {
+    font-size: $font-sm;
+}

@@ -1,0 +1,54 @@
+(deflisten
+ DP_TIMEZONE
+ :initial "GMT" `curl https://ipapi.co/timezone 2>/dev/null`)
+(defvar DP_TIME_FORMAT "%H:%M:%S")
+(defvar DP_DATE_FORMAT "%d.%m.%Y")
+
+(defwidget
+ dashpunch-datetime []
+ (box
+  :class "widget"
+  :orientation "vertical"
+  (label
+   :class "datetime-time"
+   :text "${formattime(EWW_TIME, DP_TIME_FORMAT, DP_TIMEZONE)}")
+  (label
+   :class "datetime-date"
+   :text "${formattime(EWW_TIME, DP_DATE_FORMAT, DP_TIMEZONE)}")))
+
+(defwidget
+ dashpunch-systray
+ []
+ (systray :class "widget" :orientation "vertical"))
+
+(defwidget dashpunch-hardware [] (box :class "widget"))
+
+(defwindow
+ dp-datetime
+ :monitor 0
+ :stacking "bg"
+ :geometry
+ (geometry
+  :x "20px"
+  :y "20px"
+  :width "280px"
+  :height "180px"
+  :anchor "top r")
+ (dashpunch-datetime))
+
+(defwindow
+ dp-systray
+ :monitor 0
+ :stacking "bg"
+ :geometry
+ (geometry :x "320px" :y "20px" :anchor "top r")
+ (dashpunch-systray))
+
+
+(defwindow
+ dp-hardware
+ :monitor 0
+ :stacking "bg"
+ :geometry
+ (geometry :x "20px" :y "220px" :anchor "top r")
+ (dashpunch-hardware))
